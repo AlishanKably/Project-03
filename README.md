@@ -27,15 +27,113 @@ Technologies used to design this app included the following:
 * Express
 * Mongoose
 * MongoDB
+* JEST
 * Insomnia
 * Git and GitHub
 
 
 ### Methodology
 
+During the first steps of the project, wiringframing is done with the use of Excalidraw where relationships between models were discussed as well as features we want to build on the frontend screens and what API's would be required to achieve this.
+
+As this project involved more than one person, it was important to know how the work would be divided and agree when deliverables needed to be complete by. For this, Jira was used which allowed us to break down tasks into multipe actions and assign these actions to a lead time. Following this planning stage, some basic boiler plate code is done. Models that are decided during the planning stage were then created together and a basic skeleton of the backend and frontend were set up.
+
+A seed page was then created to put some initial data into database so this can be rendered.
+```
+function getProductsData (user:any){
+  return [
+  { name: '5600', price: 140, quantity:1, category: 'CPU', user, reviews:[{content: 'good performance', user}]},
+  { name: '5600X', price: 170, quantity:1, category: 'CPU', user },
+  { name: 'RTX 3060', price: 380, quantity:1, category: 'GPU', user },
+  { name: 'RTX 3070', price: 560, quantity:1, category: 'GPU', user }
+]
+}
+```
+
+Following this, we were able to work independantley on differnt pages and their respective endpoints as we had a common vision however communication was key to ensuring we were meeting our targets. It was important to frequently revisit our Jira plan to ensure we were on track due to the tight contstraint of time.
+
+During this team project, myself and my partner collaborated in a few different ways:
+- Pair programming
+- VSCode Livecode - Multiple working at the same time on one computer
+- Git to collaborate - Working indepentdently on diffferent features then 'branch' with git to merge code with partners code.
+
+
+### Build
+
+
 ## Frontend
 
-Express was the chosen library used for the frontend of this project which allowed methods such as ```GET``` ```POST``` ```PUT``` and ```DELETE``` to be incorporated. 
+The frontend was made up of multiple ```React``` components which used async functions which fetched the API's from the MongoAtlas database. An expample of this was to show the individual products that are available on the online store by fetching their unique ID's through ```useEffect()```.
+
+```
+React.useEffect(() => {
+    async function fetchProducts() {
+      const resp = await fetch(`${baseUrl}/product/${productId}`)
+      const ProductsData = await resp.json()
+      updateProducts(ProductsData)
+      console.log(ProductsData);
+      
+    }
+    fetchProducts()
+  }, [])
+```
+Log in and Sign up components were created to allow the user to create an account through a sign up and log in process to give them more access to do more functions on the app. This was then ```navigate``` the user the home page where the list of available products are shown through the 'mapping' over the individual roducts to render these as cards on the home screen. By clicking on the individual cards, the user can see an expanded description of the products and them to their cart with the following function:
+
+```
+async function handleAddToCart(e: SyntheticEvent) {
+    e.preventDefault()
+    try {
+      const token = localStorage.getItem('token')
+      const { data } = await axios.post(`${baseUrl}/product/${productId}/cart`, productId, 
+      {headers: { Authorization: `Bearer ${token}` }
+      
+    })
+      console.log(productId, userId)
+      navigate('/')
+    } catch (err: any) {
+      setErrorMessage(err.response.data.message)
+    }
+  }
+```
+This posts the chosen product to the ```cart``` database. Once the user has completed browsing the products and adding to the basket, they can navigate to the ```cart``` tab and see the products they have selected through the following code:
+```
+async function updateCart() {
+    try {
+      const token = localStorage.getItem('token')
+      const { data } = await axios.get(`${baseUrl}/cart`, {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      updateCarts(data)
+    } catch (err: any) {
+      setErrorMessage(err.response.data.message)
+    }
+  }
+```
+
+
+A function was also used to add the prices of each product to give a check out total. 
+
+```
+Carts[0].products?.map(product => {
+            console.log(product)
+            sumArr.push(product.quantity * Number(product.product.price))
+            console.log(sumArr);
+            reducedArr = sumArr.reduce((acc, current) => {
+              return acc + current
+            })
+```
+
+Each component is also linked to an interface which describes the type of each prop, e.g.
+
+```
+export interface IOrder{
+  amount: String,
+  status: String,
+  cart: ICart,
+  user: { username: string }
+}
+```
+
 
 ## Backend
 
@@ -92,7 +190,8 @@ export async function getProducts(req: Request, res: Response) {
 
 ## The API
 
-For the API , mongoDB was used by creating an array of objects or JSON documents which hold the database with the API's fetched to render on the app. Specifically, MongoAtlas was used for this project. An object document mapper is then used for document stores to provide methods to connect to mongodb such as connecting to the database stored on MongoAtlas. For this project, Mongoose was used. The building blocks of Mongoose come from the models/schemas written in the backend to allow items such as custom validation and relationships to other models. Specifically, a RESTful API was used through creating various endpoints to fetch information from the database.
+For the API, Express was the chosen library used for this project which allowed methods such as ```GET``` ```POST``` ```PUT``` and ```DELETE``` to be incorporated.
+MongoDB was used by creating an array of objects or JSON documents which hold the database with the API's fetched to render on the app. Specifically, MongoAtlas was used for this project. An object document mapper is then used for document stores to provide methods to connect to mongodb such as connecting to the database stored on MongoAtlas. For this project, Mongoose was used. The building blocks of Mongoose come from the models/schemas written in the backend to allow items such as custom validation and relationships to other models. Specifically, a RESTful API was used through creating various endpoints to fetch information from the database.
 
 ```
 // product endpoints
@@ -130,7 +229,7 @@ export async function signup(req: Request, res: Response) {
 ## Authentication/Authorization
 
 
-We wanted to allow the user to create an account throguh a sign up and log in process to give them more access to do more functions on the app. This was done in two ways:
+
 
 * Authentication: 
 
@@ -183,31 +282,17 @@ This token is also used on the frontend by:
 * Show various items on the frontend when the user is logged in. An example of this is the changes in the navbar. The ```Add Product``` tab would only be visible to a user who has sign up and can provide a token.
 
 
+### Testing
 
-Group work:
-At beginning, some basic boiler plate code is done. Then created models together and set up basic skeleton of backend and front end.
-Wireframing - talking about the models and relationships between them. Features we want to build on front end screens. API end points we want.
-A seed page was then created to put some initial data into database so this can be rendered.
-```
-function getProductsData (user:any){
-  return [
-  { name: '5600', price: 140, quantity:1, category: 'CPU', user, reviews:[{content: 'good performance', user}]},
-  { name: '5600X', price: 170, quantity:1, category: 'CPU', user },
-  { name: 'RTX 3060', price: 380, quantity:1, category: 'GPU', user },
-  { name: 'RTX 3070', price: 560, quantity:1, category: 'GPU', user }
-]
-}
-```
+To ensure correctness of our TypeScipt codebase, the ```JEST``` framework was employed.
 
-Following this, we were able to work independantley on differnt pages and their respective endpoints as we had a common vision however communication was key to ensuring we were meeting our targets. It was important to frequently revisit our Jira plan to ensure we a=were on track due to the tight contstraint of time.
-During this team project, myself and my partner collaborated in a few different ways:
-- Pair programming
-- VSCode Livecode - Multiple working at the same time on one computer
-- Git to collaborate - Working indepentdently on diffferent features then 'branch' with git to merge code with partners code.
+## Challenges
 
-Testing
+The biggest importance of this project was to ensure we were working collaboratively and communicating well to ensure our independant code was building the app and not conflicting in any way. Regular discussions and 'stand ups' helped to achieve this.
 
+## Wins
 
+My group was able effectively collaborate our code to create a presentable app which incorporated many different features for a user to experiment with. We were able to successfully sign up and log in a user who then had the permission upload their own products to the online store which could then be bought by another user by saving the product to their cart and checking out.
 
 
 
