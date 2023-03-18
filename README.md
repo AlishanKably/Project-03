@@ -11,10 +11,10 @@ To view the app, click here : https://ecommerce-project3.netlify.app
 ### Technical Requirements
 
 * Work in a team, using **git to code collaboratively**.
-* **Build a full-stack application** by making a backend/frontend
-* **Use an Express API** to serve your data from a Mongo database
-* **Consume your API with a separate front-end** built with React
-* **Be a complete product** which most likely means multiple relationships and CRUD functionality for at least a couple of models
+* **Build a full-stack application** by making a backend/frontend.
+* **Use an Express API** to serve your data from a Mongo database.
+* **Consume your API with a separate front-end** built with React.
+* **Be a complete product** which most likely means multiple relationships and CRUD functionality for at least a couple of models.
 * **Be deployed online** so it's publicly accessible.
 * **Have automated tests** for _at least_ one RESTful resource on the back-end.
 
@@ -34,11 +34,11 @@ Technologies used to design this app included the following:
 
 ### Methodology
 
-During the first steps of the project, wiringframing is done with the use of Excalidraw where relationships between models were discussed as well as features we want to build on the frontend screens and what API's would be required to achieve this.
+During the first steps of the project, wireframing is done with the use of Excalidraw where relationships between models were discussed as well as features we want to build on the frontend screens and what API's would be required to achieve this.
 
-As this project involved more than one person, it was important to know how the work would be divided and agree when deliverables needed to be complete by. For this, Jira was used which allowed us to break down tasks into multipe actions and assign these actions to a lead time. Following this planning stage, some basic boiler plate code is done. Models that are decided during the planning stage were then created together and a basic skeleton of the backend and frontend were set up.
+As this project involved more than one person, it was important to know how the work would be divided and agree when deliverables needed to be completed by. For this, Jira was used which allowed us to break down tasks into multipe actions and assign these actions to a lead time. Following this planning stage, some basic boilerplate code is done. Models that are decided during the planning stage were then created together and a basic skeleton of the backend and frontend were set up.
 
-A seed page was then created to put some initial data into database so this can be rendered.
+A seed page was then created to test the models and add some initial data into the database so this can be rendered.
 ```
 function getProductsData (user:any){
   return [
@@ -50,12 +50,12 @@ function getProductsData (user:any){
 }
 ```
 
-Following this, we were able to work independantley on differnt pages and their respective endpoints as we had a common vision however communication was key to ensuring we were meeting our targets. It was important to frequently revisit our Jira plan to ensure we were on track due to the tight contstraint of time.
+Following this, we were able to work independently on different pages and their respective endpoints as we had a common vision however regular communication every other day was key to ensuring we were meeting our targets. The work was split by choosing different components for each of us to tackle. It was important to frequently revisit our Jira plan to ensure we were on track due to the tight constraint of time.
 
 During this team project, myself and my partner collaborated in a few different ways:
 - Pair programming
 - VSCode Livecode - Multiple working at the same time on one computer
-- Git to collaborate - Working indepentdently on diffferent features then 'branch' with git to merge code with partners code.
+- Git to collaborate - Working independently on different features then 'branch' with git to merge code with partners code.
 
 
 ### Build
@@ -138,7 +138,7 @@ export interface IOrder{
 ## Backend
 
 We used an MVC approach was consisted of the following:
-* Model - This described the data to be represented with the use of Schema's.
+* Model - This describes the data to be represented with the use of Schema's.
 
 ```
 const productSchema = new mongoose.Schema(
@@ -288,11 +288,12 @@ To ensure correctness of our TypeScipt codebase, the ```JEST``` framework was em
 
 ## Challenges
 
-The biggest importance of this project was to ensure we were working collaboratively and communicating well to ensure our independant code was building the app and not conflicting in any way. Regular discussions and 'stand ups' helped to achieve this.
+The most important aspect of this project was to ensure we were working collaboratively and communicating well to ensure our independant code was building the app and not conflicting in any way. Regular discussions and 'stand ups' helped to achieve this.
 
 ## Wins
 
 My group was able effectively collaborate our code to create a presentable app which incorporated many different features for a user to experiment with. We were able to successfully sign up and log in a user who then had the permission upload their own products to the online store which could then be bought by another user by saving the product to their cart and checking out.
+
 
 
 
