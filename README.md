@@ -32,7 +32,7 @@ Technologies used to design this app included the following:
 * Git and GitHub
 
 
-### Methodology
+## Planning
 
 During the first steps of the project, wireframing is done with the use of Excalidraw where relationships between models were discussed as well as features we want to build on the frontend screens and what API's would be required to achieve this.
 
@@ -58,7 +58,7 @@ During this team project, myself and my partner collaborated in a few different 
 - Git to collaborate - Working independently on different features then 'branch' with git to merge code with partners code.
 
 
-### Build
+## Build
 
 
 ## Frontend
