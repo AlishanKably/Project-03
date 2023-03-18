@@ -284,7 +284,12 @@ This token is also used on the frontend by:
 
 ### Testing
 
-To ensure correctness of our TypeScipt codebase, the ```JEST``` framework was employed.
+To ensure correctness of our TypeScipt codebase, the ```JEST``` framework was employed. Through ```npm run test```, test suites would show if the tests would pass or fail and let us know if there was any code missing. This was an effective tool to use when working with a partner as we would be sharing code and would need to build confidence in ensuring the code could be built on by others. The below code was created in the ```.env``` file.
+
+```
+MONGODB_URI_TEST= mongodb://127.0.0.1:27017/testproductsdb
+```
+
 
 ## Challenges
 
@@ -295,7 +300,9 @@ The most important aspect of this project was to ensure we were working collabor
 My group was able effectively collaborate our code to create a presentable app which incorporated many different features for a user to experiment with. We were able to successfully sign up and log in a user who then had the permission upload their own products to the online store which could then be bought by another user by saving the product to their cart and checking out.
 
 
+## Key learnings
 
+This project allowed me to develop a better understanding of the backend MVC architecture and how this works along side the frontend React design. I believe this project was also crucial for me to gain experience in working with a partner and how to collaborate code with others. It developed my understanding of project management by keeping track of timelines and deadlines as well as effective ways to communicate with my partner.
 
 
 
