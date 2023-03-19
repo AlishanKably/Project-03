@@ -2,7 +2,7 @@
 ## E-Commerce Store
 ### Overview
 
-This project tested our abilities to work in groups to create a frontend and backend that worked together to create a fullstack app. Myself and my partner decided to create an E-commerce store where users can make an account to browse and buy products as well as post products they would like to sell once they are logged in. The project took place over the course of 2 weeks.
+This project tested our abilities to work in groups to create a frontend and backend that worked together to create a full stack app. Myself and my partner decided to create an E-commerce store where users can make an account to browse and buy products as well as post products they would like to sell once they are logged in. The project took place over the course of 2 weeks.
 
 ### Deployment link
 
@@ -191,7 +191,7 @@ export async function getProducts(req: Request, res: Response) {
 ## The API
 
 For the API, Express was the chosen library used for this project which allowed methods such as ```GET``` ```POST``` ```PUT``` and ```DELETE``` to be incorporated.
-MongoDB was used by creating an array of objects or JSON documents which hold the database with the API's fetched to render on the app. Specifically, MongoAtlas was used for this project. An object document mapper is then used for document stores to provide methods to connect to mongodb such as connecting to the database stored on MongoAtlas. For this project, Mongoose was used. The building blocks of Mongoose come from the models/schemas written in the backend to allow items such as custom validation and relationships to other models. Specifically, a RESTful API was used through creating various endpoints to fetch information from the database.
+MongoDB was used by creating an array of objects or JSON documents which hold the database with the API's fetched to render on the app. Specifically, MongoAtlas was used for this project. An object document mapper is then used for document stores to provide methods to connect to mongoDB such as connecting to the database stored on MongoAtlas. For this project, Mongoose was used. The building blocks of Mongoose come from the models/schemas written in the backend to allow items such as custom validation and relationships to other models. Specifically, a RESTful API was used through creating various endpoints to fetch information from the database.
 
 ```
 // product endpoints
@@ -284,7 +284,7 @@ This token is also used on the frontend by:
 
 ### Testing
 
-To ensure correctness of our TypeScipt codebase, the ```JEST``` framework was employed. Through ```npm run test```, test suites would show if the tests would pass or fail and let us know if there was any code missing. This was an effective tool to use when working with a partner as we would be sharing code and would need to build confidence in ensuring the code could be built on by others. The below code was created in the ```.env``` file.
+To ensure correctness of our TypeScript codebase, the ```JEST``` framework was employed. Through ```npm run test```, test suites would show if the tests would pass or fail and let us know if there was any code missing. This was an effective tool to use when working with a partner as we would be sharing code and would need to build confidence in ensuring the code could be built on by others. The below code was created in the ```.env``` file.
 
 ```
 MONGODB_URI_TEST= mongodb://127.0.0.1:27017/testproductsdb
@@ -293,7 +293,7 @@ MONGODB_URI_TEST= mongodb://127.0.0.1:27017/testproductsdb
 
 ## Challenges
 
-The most important aspect of this project was to ensure we were working collaboratively and communicating well to ensure our independant code was building the app and not conflicting in any way. Regular discussions and 'stand ups' helped to achieve this.
+The most important aspect of this project was to ensure we were working collaboratively and communicating well to ensure our independent code was building the app and not conflicting in any way. Regular discussions and 'stand ups' helped to achieve this.
 
 ## Wins
 
@@ -302,7 +302,7 @@ My group was able effectively collaborate our code to create a presentable app w
 
 ## Key learnings
 
-This project allowed me to develop a better understanding of the backend MVC architecture and how this works along side the frontend React design. I believe this project was also crucial for me to gain experience in working with a partner and how to collaborate code with others. It developed my understanding of project management by keeping track of timelines and deadlines as well as effective ways to communicate with my partner.
+This project allowed me to develop a better understanding of the backend MVC architecture and how this works alongside the frontend React design. I believe this project was also crucial for me to gain experience in working with a partner and how to collaborate code with others. It developed my understanding of project management by keeping track of timelines and deadlines as well as effective ways to communicate with my partner.
 
 
 
