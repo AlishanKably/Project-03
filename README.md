@@ -34,9 +34,9 @@ Technologies used to design this app included the following:
 
 ## Planning
 
-During the first steps of the project, wireframing is done with the use of Excalidraw where relationships between models were discussed as well as features we want to build on the frontend screens and what API's would be required to achieve this.
+During the first steps of the project, wireframing was done with the use of Excalidraw where relationships between models were discussed as well as features we wanted to build on the frontend screens and what API's would be required to achieve this.
 
-As this project involved more than one person, it was important to know how the work would be divided and agree when deliverables needed to be completed by. For this, Jira was used which allowed us to break down tasks into multipe actions and assign these actions to a lead time. Following this planning stage, some basic boilerplate code is done. Models that are decided during the planning stage were then created together and a basic skeleton of the backend and frontend were set up.
+As this project involved more than one person, it was important to know how the work would be divided and who would take care of which slice of the frontend and backend for each model and we agreed when deliverables needed to be completed by. As we both wanted to contribute to both frontend and backend, we decided to allocate the backend models and corresponding frontend routes between us. For this, Jira was used which allowed us to break down tasks into multiple actions and assign these actions to a lead time. Following this planning stage, some basic boilerplate code was done. Models that were decided during the planning stage were then created together and a basic skeleton of the backend and frontend were set up.
 
 A seed page was then created to test the models and add some initial data into the database so this can be rendered.
 ```
@@ -50,7 +50,7 @@ function getProductsData (user:any){
 }
 ```
 
-Following this, we were able to work independently on different pages and their respective endpoints as we had a common vision however regular communication every other day was key to ensuring we were meeting our targets. The work was split by choosing different components for each of us to tackle. It was important to frequently revisit our Jira plan to ensure we were on track due to the tight constraint of time.
+Following this, we were able to work independently on different pages and their respective endpoints as we had a common vision, however regular communication every other day was key to ensure we were meeting our targets. The work was split by choosing different components for each of us to tackle. It was important to frequently revisit our Jira plan to ensure we were on track due to the tight constraint of time.
 
 During this team project, myself and my partner collaborated in a few different ways:
 - Pair programming
@@ -63,7 +63,7 @@ During this team project, myself and my partner collaborated in a few different 
 
 ## Frontend
 
-The frontend was made up of multiple ```React``` components which used async functions which fetched the API's from the MongoAtlas database. An expample of this was to show the individual products that are available on the online store by fetching their unique ID's through ```useEffect()```.
+The frontend was made up of multiple ```React``` components which used async functions which fetched the API's from the MongoAtlas database. An example of this was to show the individual products that were available on the online store by fetching their unique ID's through ```useEffect()```.
 
 ```
 React.useEffect(() => {
@@ -77,7 +77,7 @@ React.useEffect(() => {
     fetchProducts()
   }, [])
 ```
-Log in and Sign up components were created to allow the user to create an account through a sign up and log in process to give them more access to do more functions on the app. This was then ```navigate``` the user the home page where the list of available products are shown through the 'mapping' over the individual roducts to render these as cards on the home screen. By clicking on the individual cards, the user can see an expanded description of the products and them to their cart with the following function:
+Log in and Sign up components were created to allow the user to create an account through a sign up and log in process to give them more access to do more functions on the app. This would then ```navigate``` the user to the home page where the list of available products are shown through the 'mapping' over the individual products to render these as cards on the home screen. By clicking on the individual cards, the user can see an expanded description of the products and add them to their cart with the following function:
 
 ```
 async function handleAddToCart(e: SyntheticEvent) {
@@ -137,7 +137,7 @@ export interface IOrder{
 
 ## Backend
 
-We used an MVC approach was consisted of the following:
+We used an MVC approach which consisted of the following:
 * Model - This describes the data to be represented with the use of Schema's.
 
 ```
@@ -233,7 +233,7 @@ export async function signup(req: Request, res: Response) {
 
 * Authentication: 
 
-JWT (jsonwebtoken) was used to create a unique token for the user as they sign up. This can then be sent when they make requests on the app. During the sign up process, bcrypt was used to hash the password and store the hash to the database. If passwords are attempted at a later time, the hashed password can be compared to the stored password.
+JWT (jsonwebtoken) was used to create a unique token for the user as they sign up. This can then be sent when they make requests on the app. During the signup process, bcrypt was used to hash the password and store the hash to the database. If passwords are attempted at a later time, the hashed password can be compared to the stored password.
 
 ```
 userSchema.pre('save', function hashPassword(next) {
@@ -256,7 +256,7 @@ export function checkPasswords(password: string, passwordConfirmation: string) {
 
 * Authorization:
 
-To apply autherisation to the user details, middleware was used, specifically secure route, error handling, and logging
+To apply authorisation to the user details, middleware was used, specifically secure route, error handling, and logging
 JWT to verify the token when a product is posted.
 
 ```
@@ -297,12 +297,12 @@ The most important aspect of this project was to ensure we were working collabor
 
 ## Wins
 
-My group was able effectively collaborate our code to create a presentable app which incorporated many different features for a user to experiment with. We were able to successfully sign up and log in a user who then had the permission upload their own products to the online store which could then be bought by another user by saving the product to their cart and checking out.
+My group was able to effectively collaborate our individual codes to create a presentable app which incorporated many different features for a user to experiment with. We were able to successfully sign up and log in a user who then had the permission to upload their own products to the online store which could then be bought by another user by saving the product to their cart and checking out.
 
 
 ## Key learnings
 
-This project allowed me to develop a better understanding of the backend MVC architecture and how this works alongside the frontend React design. I believe this project was also crucial for me to gain experience in working with a partner and how to collaborate code with others. It developed my understanding of project management by keeping track of timelines and deadlines as well as effective ways to communicate with my partner.
+This project allowed me to develop a better understanding of the backend MVC architecture and how this works alongside the frontend React design. I believe this project was also crucial for me to gain experience in working with a partner and how to collaborate coding with others. It developed my understanding of project management by keeping track of timelines and deadlines as well as effective ways to communicate with my partner.
 
 
 
