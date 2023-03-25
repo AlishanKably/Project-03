@@ -25,11 +25,14 @@ Technologies used to design this app included the following:
 
 * TypeScript
 * Express
+* React
 * Mongoose
 * MongoDB
+* Mongo Atlas
 * JEST
 * Insomnia
 * Git and GitHub
+* Jira
 
 
 ## Planning
@@ -37,6 +40,8 @@ Technologies used to design this app included the following:
 During the first steps of the project, wireframing was done with the use of Excalidraw where relationships between models were discussed as well as features we wanted to build on the frontend screens and what API's would be required to achieve this.
 
 As this project involved more than one person, it was important to know how the work would be divided and who would take care of which slice of the frontend and backend for each model and we agreed when deliverables needed to be completed by. As we both wanted to contribute to both frontend and backend, we decided to allocate the backend models and corresponding frontend routes between us. For this, Jira was used which allowed us to break down tasks into multiple actions and assign these actions to a lead time. Following this planning stage, some basic boilerplate code was done. Models that were decided during the planning stage were then created together and a basic skeleton of the backend and frontend were set up.
+
+Example of the Jira board during the project:
 
 ![](images/jira.png)
 
@@ -52,7 +57,7 @@ function getProductsData (user:any){
 }
 ```
 
-Following this, we were able to work independently on different pages and their respective endpoints as we had a common vision, however regular communication every other day was key to ensure we were meeting our targets. The work was split by choosing different components for each of us to tackle. It was important to frequently revisit our Jira plan to ensure we were on track due to the tight constraint of time.
+Following this, we were able to work independently on different pages and their respective endpoints as we had a common vision, however regular communication every other day was key to ensure we were meeting our targets. The work was split by choosing different components for each of us to tackle. For example, the first few sprints which I worked on included the frontend structure, creating interfaces, creating components and creating routers whereas my partner would work on the backend routes, middleware and models. It was important to frequently revisit our Jira plan to ensure we were on track due to the tight constraint of time.
 
 During this team project, myself and my partner collaborated in a few different ways:
 - Pair programming
