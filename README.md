@@ -38,6 +38,8 @@ During the first steps of the project, wireframing was done with the use of Exca
 
 As this project involved more than one person, it was important to know how the work would be divided and who would take care of which slice of the frontend and backend for each model and we agreed when deliverables needed to be completed by. As we both wanted to contribute to both frontend and backend, we decided to allocate the backend models and corresponding frontend routes between us. For this, Jira was used which allowed us to break down tasks into multiple actions and assign these actions to a lead time. Following this planning stage, some basic boilerplate code was done. Models that were decided during the planning stage were then created together and a basic skeleton of the backend and frontend were set up.
 
+![](images/jira.png)
+
 A seed page was then created to test the models and add some initial data into the database so this can be rendered.
 ```
 function getProductsData (user:any){
